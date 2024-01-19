@@ -29,18 +29,25 @@ function winnerRound (){
 
     if (playerSelection === "rock" && computerSelection === "scissors"){
         winnerRound = "Player";
+        alert("You win! Rock beats Scissors");
     } else if (playerSelection === "rock" && computerSelection === "paper"){
         winnerRound = "Computer";
+        alert("You lose! Paper beats Rock");
     } else if (playerSelection === "paper" && computerSelection === "rock"){
         winnerRound = "Player";
+        alert("You win! Paper beats Rock");
     } else if (playerSelection === "paper" && computerSelection === "scissors"){
         winnerRound = "Computer";
+        alert("You lose! Scissors beats Paper");
     } else if (playerSelection === "scissors" && computerSelection === "rock"){
         winnerRound = "Computer";
+        alert("You lose! Rock beats Scissors");
     } else if (playerSelection === "scissors" && computerSelection === "paper"){
         winnerRound = "Player";
+        alert("You win! Scissors beats Paper");
     } else if (playerSelection === computerSelection){
         winnerRound = "Tie";
+        alert("It's a tie!");
     }
     return winnerRound;
 }
@@ -54,10 +61,8 @@ function newGame(){
         let winner = winnerRound();
         if (winner==="Player"){
             ++playerScore;
-            alert("You win this round!");
         }else if(winner==="Computer"){
             ++computerScore;
-            alert("You lost this round!");
         }
     }
     return alert(`Computer ${computerScore} x ${playerScore} You`)
