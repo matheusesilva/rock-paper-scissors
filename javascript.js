@@ -5,7 +5,7 @@ const choices = ["rock","paper","scissors"];
 
 
 function getComputerChoice(){
-    let numberChoice = Math.floor(Math.random()*3)
+    let numberChoice = Math.floor(Math.random()*choices.length)
     numberChoice = choices.slice(numberChoice,numberChoice+1)
     return numberChoice.toString()
 }
@@ -15,16 +15,20 @@ function getComputerChoice(){
 
 function getPlayerChoice(){
     let playerChoice = prompt("Please choise one of the options: Rock, Paper or Scissors");
-    return playerChoice.toLowerCase();   
+    console.log(playerChoice);
+    if (playerChoice === null){
+        playerChoice = prompt("Please choise one of the options: Rock, Paper or Scissors");
+    } else {
+        playerChoice = playerChoice.toLowerCase();
+    }
+    return playerChoice;
 }
 
 //Compare both selection e return the winner of the round
 function winnerRound (){
 
     const playerSelection = getPlayerChoice();
-    console.log(playerSelection);
     const computerSelection = getComputerChoice();
-    console.log(computerSelection);
     let winnerRound;
 
     if (playerSelection === "rock" && computerSelection === "scissors"){
@@ -61,12 +65,14 @@ function newGame(){
         let winner = winnerRound();
         if (winner==="Player"){
             ++playerScore;
+            alert(`Computer ${computerScore} x ${playerScore} You`);
         }else if(winner==="Computer"){
             ++computerScore;
+            alert(`Computer ${computerScore} x ${playerScore} You`)
         }
     }
     return alert(`Computer ${computerScore} x ${playerScore} You`)
 }
 
-
-//Declare the winner of the game
+//Starts the game
+newGame()
